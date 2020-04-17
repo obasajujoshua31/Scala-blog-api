@@ -1,0 +1,32 @@
+
+GET / controllers.AuthController.home()
+
++nocsrf
+POST /register controllers.AuthController.register()
++nocsrf
+POST /login controllers.AuthController.login()
++nocsrf
+POST /api/articles controllers.ArticleController.createArticle
+GET /api/articles  controllers.ArticleController.getAllArticles
+GET /api/article/:id controllers.ArticleController.getArticleById(id)
+GET /api/articles/user controllers.ArticleController.getArticlesByLoggedInUser
++nocsrf
+PUT /api/article/:id controllers.ArticleController.updateArticle(id)
++nocsrf
+DELETE /api/article/:id controllers.ArticleController.deleteArticle(id)
+
++nocsrf
+POST /api/article/:articleId/comment controllers.CommentController.createComment(articleId)
+GET /api/article/:articleId/comment controllers.CommentController.getAllArticleComments(articleId)
+GET /api/comment/:id controllers.CommentController.getCommentsById(id)
+GET /api/comments/user controllers.CommentController.getCommentsByLoggedInUser
++nocsrf
+PUT /api/comment/:id controllers.CommentController.updateComment(id)
++nocsrf
+DELETE /api/comment/:id controllers.CommentController.deleteComment(id)
+
++nocsrf
+POST /api/article/:articleId controllers.LikeController.likeOrUnlikeArticle(articleId )
++nocsrf
+POST /api/comment/:commentId controllers.LikeController.likeOrUnlikeComment(commentId)
+GET /api/likes/user controllers.LikeController.loggedInUserLikes
